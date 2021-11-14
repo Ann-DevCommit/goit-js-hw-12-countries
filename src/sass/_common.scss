@@ -17,6 +17,11 @@ img {
   height: auto;
 }
 
+ul {
+  margin: 0;
+  padding: 0;
+}
+
 li {
   list-style: none;
 }
@@ -29,4 +34,37 @@ li {
   border: 4px solid #0a7abd;
   border-radius: 10px;
   font-size: 20px;
+}
+
+.country-title {
+  text-align: center;
+}
+
+.country-card {
+  margin: auto;
+  display: flex;
+  max-width: 500px;
+}
+
+.country-flag {
+  max-width: 50%;
+}
+
+.country-text {
+  margin-right: 20px;
+}
+
+.country-data {
+  margin-top: 0;
+}
+
+.country-list {
+  max-width: 250px;
+  margin: auto;
+}
+
+.modal {
+  position: absolute;
+  top: 30px;
+  right: 30px;
 }
