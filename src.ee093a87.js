@@ -40,4 +40,4 @@ module.exports=function(t){return fetch(t).then(function(t){return t.text()})};
 },{}],0:[function(require,module,exports) {
 var b=require("TUK3");b.register("html",require("A3BY"));b.load([["country-search.71068b3e.html","E89k"]]).then(function(){require("Focm");});
 },{}]},{},[0], null)
-//# sourceMappingURL=/goit-js-hw-12-countries/src.af9d4335.js.map
+//# sourceMappingURL=/goit-js-hw-12-countries/src.ee093a87.js.map
