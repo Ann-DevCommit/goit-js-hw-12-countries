@@ -12,6 +12,15 @@ import './partials/country-search.html'
 const inputEl = document.querySelector('.country-input')
 const resultContainerEl = document.querySelector('.js-result-container')
 
+
+console.log(inputEl)
+inputEl.value = ''
+// inputEl.addEventListener('unload', onResetPage)
+// function onResetPage(event) {
+//     event.currentTarget.elements.query.value = ''
+// }
+// inputEl.query === ''
+
 inputEl.addEventListener('input', debounce(onCountrySearch, 500))
 
 function onCountrySearch(event) {
@@ -22,20 +31,18 @@ function onCountrySearch(event) {
         return;
 
     fetchCountries(inputContryName)
-        .then(
-            function responseError(countries) {
-                    if (countries.status === 404) {
-                        errorMessage('404, Таких стран не бывает :)')
-                        return
-                   }
-                    
-                    
+        .then((countries) => {
                 const filteredCountries = countries.filter(country => country.name.toLowerCase().includes(inputContryName))
                 return filteredCountries
             }
         )
         .then(renderCountries)
-        .catch(error => console.log('catch error. Страна не найдена', error));
+        .catch(error => ( 
+            // console.log('catch error. Страна не найдена', error),
+            errorMessage('404, Таких стран не бывает :)'),
+            resetCountryList()
+        )
+        );
 }
     
 
@@ -55,14 +62,18 @@ function renderCountries(filteredCountries) {
         return
     }
     if ((filteredCountries.length < 1)) {
-        errorMessage('Таких стран не бывает :)')        
+        errorMessage('Таких стран не бывает :)')
+        resetCountryList()
     }
     else {
         errorMessage('Введите более специфичное значение')
+        resetCountryList()
     }
 }
 
-
+function resetCountryList() {
+    resultContainerEl.innerHTML = ''
+}
 
 function errorMessage(message) {
     error({

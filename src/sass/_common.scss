@@ -64,7 +64,14 @@ li {
 }
 
 .country-list li {
+  display: flex;
+  align-items: center;
   font-weight: 700;
+}
+
+.country-list img {
+  display: inline-block;
+  margin-right: 10px;
 }
 
 .modal {
